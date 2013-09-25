@@ -1,0 +1,18 @@
+Config { font = "xft:inconsolata-9:medium"
+       , bgColor = "#000000"
+       , fgColor = "#93ADBC"
+       , position = TopW R 100
+       , lowerOnStart = True
+       , commands = [ Run Weather "KMWA" ["-t"," <station>: <tempF>F","-L","60","-H","85","--normal","green","--high","red","--low","lightblue"] 36000
+                    , Run Cpu ["-L","3","-H","80","--normal","green","--high","red"] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Network "wlan0" ["-L","0","-H","300","--normal","green","--high","red"] 10
+                    , Run Date "%a %b %_d | %l:%M %p" "date" 10
+                    , Run Com "~/.xmonad/get-volume" [] "Sound" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "<fc=#695DFF>%StdinReader%</fc> }{ <fc=#00FF22>%cpu%</fc> | <fc=#6200C4>%memory%</fc> | <fc=#F2FF00>%wlan0%</fc> | <fc=#FFFFFF>%KMWA%</fc>  | <fc=#FFFFFF>%date%</fc>"
+       }
