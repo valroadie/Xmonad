@@ -12,21 +12,21 @@ myManageHook = composeAll
     ]
  
 main = do
-    xmproc <- spawnPipe "/usr/bin/xmobar ~/xmobarrc"
+    xmproc <- spawnPipe "/usr/bin/xmobar ~/xmobarrc" -- this is where you place your xmobarrc exec
     xmonad $ defaultConfig
         { manageHook = manageDocks <+> myManageHook -- make sure to include myManageHook definition from above
                         <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
-                        , ppTitle = xmobarColor "#FFFF00" "" . shorten 50
+                        , ppTitle = xmobarColor "#FFFF00" "" . shorten 50 -- this controls the color of xmobar
                         }
         , modMask = mod4Mask     -- Rebind Mod to the Windows key
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
         , ((controlMask, xK_Print), spawn "")
         , ((0, xK_Print), spawn "")
-        , ((mod4Mask, xK_i), spawn "firefox")
+        , ((mod4Mask, xK_i), spawn "iceweasel") -- obligatory note about replacing these with the keys and apps you want to run
         , ((mod4Mask .|. shiftMask, xK_Return), spawn "terminator")
         , ((mod4Mask, xK_e), spawn "evolution")
         , ((mod4Mask, xK_x), spawn "xchat")
