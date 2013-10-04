@@ -1,4 +1,4 @@
-Config { font = "xft:inconsolata-9:medium" --This is where you set your font.
+Config { font = "xft:inconsolata-9:medium" -- this is where you set your font.
        , bgColor = "#000000" -- Background color of xmobar
        , fgColor = "#93ADBC" -- Foreground color of xmobar
        , position = TopW R 100 -- screen position and length of xmobar
@@ -7,7 +7,7 @@ Config { font = "xft:inconsolata-9:medium" --This is where you set your font.
                     , Run Cpu ["-L","3","-H","80","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Swap [] 10
-                    , Run Network "wlan0" ["-L","0","-H","300","--normal","green","--high","red"] 10 --The numbers represent the usage for the colors, this applies for all the lines above and below.
+                    , Run Network "wlan0" ["-L","0","-H","300","--normal","green","--high","red"] 10 -- the numbers represent the usage for the colors, this applies for all the lines above and below.
                     , Run Date "%a %b %_d | %l:%M %p" "date" 10
                     , Run Com "~/.xmonad/get-volume" [] "Sound" 10
                     , Run StdinReader
@@ -17,4 +17,4 @@ Config { font = "xft:inconsolata-9:medium" --This is where you set your font.
        , template = "<fc=#695DFF>%StdinReader%</fc> }{ <fc=#00FF22>%cpu%</fc> | <fc=#6200C4>%memory%</fc> | <fc=#F2FF00>%wlan0%</fc> | <fc=#FFFFFF>%KMWA%</fc>  | <fc=#FFFFFF>%date%</fc>"
        }
 
-  -- Note the color codes above, they control the color on the xmobar. 
+  -- note the color codes above, they control the color on the xmobar. 
